@@ -1,17 +1,14 @@
-# AI_Powered_Customer_Retension_Prediction_System
+# 🤖💡 AI_Powered_Customer_Retension_Prediction_System
 
-## Project Overview
+## 📝 Project Overview
 
 The **AI-Powered Customer Retention System** is designed to help telecommunication companies like **Jio, Vi, Airtel, and BSNL** predict customer churn and proactively retain high-value customers. By analyzing historical customer data—including demographics, subscription details, usage patterns, and service interactions—the system identifies customers at risk of leaving.
-
 This project covers the complete machine learning pipeline, from data preprocessing and feature engineering to model training, evaluation, and deployment through a **Flask web application**. 
 
-## Main Goal
-
+## 🎯 Main Goal
 The main goal of the **AI-Powered Customer Retention System** is to **reduce customer churn in the telecommunications industry** by proactively identifying at-risk customers and providing actionable insights to improve retention strategies.
 
-## 📊 Dataset Description
-
+## 📁 Dataset Description
 The dataset contains **7,043 unique customer records** with **24 features**, including a mix of categorical (demographics, service details) and numerical (tenure, charges) variables. It captures historical telecom customer information from providers like **Jio, Vi, Airtel, and BSNL**, and is used to predict customer churn.
 
 | Feature            | Description |
@@ -41,12 +38,11 @@ The dataset contains **7,043 unique customer records** with **24 features**, inc
 | Region_Type        | Customer region (Urban, Suburban, Rural) |
 | Device_Status      | Indicates whether the customer is using a new or old device |
 
-### Dataset Categories
+### 🏷️ Dataset Categories
 - **Target Variable:** `Churn` (Yes / No)  
 - **Demographics:** `gender`, `SeniorCitizen`, `Partner`, `Dependents`, `Region_Type`  
 - **Services:** `Service_provider`, `PhoneService`, `InternetService`, `OnlineSecurity`, `OnlineBackup`, `DeviceProtection`, `TechSupport`, `StreamingTV`, `StreamingMovies`  
 - **Account Information:** `tenure`, `Contract`, `PaymentMethod`, `MonthlyCharges`, `TotalCharges`  
-
 ### Summary Statistics
 - **Total Customers:** 7,043  
 - **Churn Status:**  
@@ -60,11 +56,8 @@ The dataset contains **7,043 unique customer records** with **24 features**, inc
   - Airtel: 2,113  
   - Vi: 1,377  
   - BSNL: 695  
-
-This dataset provides a well-rounded view of customer demographics, account usage, and service preferences, which is ideal for building predictive models to identify at-risk customers and improve retention strategies.
-
 ---
-## ⚙️ Project Structure
+## 🗂️ Project Structure
 
 ```text
 AI_Customer_Retention_Prediction_System/
@@ -98,3 +91,132 @@ AI_Customer_Retention_Prediction_System/
 ├─ EDA images                 # Data visulization
 ├─  plots                     # normal distribution graphs
 └─ outliers_images            # Outliers plotting using box-plot
+```
+---
+
+
+## 🔄 ML - Pipeline
+
+The Telecom Churn Prediction System uses a structured machine learning pipeline to clean, transform, and prepare customer data for modeling. It handles missing values, skewed distributions, outliers, categorical encoding, feature selection, scaling, and class imbalance. After preprocessing, multiple models are trained, the best one is selected and optimized, and finally deployed via a Flask web application for real-time churn prediction. This pipeline ensures robust, accurate, and scalable predictions. for readme file code
+
+### 📊 Data Visualization & Exploration
+- **Library:** Matplotlib  
+- **Techniques used:** Pie charts, bar charts, stacked/multi-group charts, grids/subplots  
+- **Purpose:** Understand churn distribution, customer demographics, and numeric feature patterns  
+- **Selected approach:** Matplotlib for full control and interpretability
+
+---
+
+### 🛠️ Feature Engineering
+
+**1. Handling Missing Values**  
+- **Techniques tested:** Mean, Median, Mode, Forward/Backward Fill, KNN, MICE  
+- **Selected:** Random Imputation – preserves original distribution by filling missing values with random samples from the column  
+
+**2. Data Separation**  
+- **Techniques:** Manual separation using `pandas.select_dtypes()`  
+- **Selected:** Split into Numerical & Categorical for targeted preprocessing  
+
+**3. Variable Transformation**  
+- **Techniques tested:** Log, Box-Cox, Yeo-Johnson, Quantile Transformation  
+- **Selected per feature:**  
+  - `tenure` → Yeo-Johnson  
+  - `MonthlyCharges` → Quantile  
+  - `TotalCharges` → Quantile  
+- **Reason:** Chosen transformation minimized skewness and kurtosis for more normal-like distributions  
+
+**4. Handling Outliers**  
+- **Techniques tested:** IQR, Winsorization, MAD, Quantile Clipping  
+- **Selected per feature:**  
+  - `SeniorCitizen` → IQR  
+  - `tenure` → Original (no action needed)  
+  - `MonthlyCharges` → IQR  
+  - `TotalCharges` → IQR  
+- **Reason:** IQR minimized extreme values while preserving data distribution  
+
+**5. Categorical Encoding**  
+- **Techniques tested:** One-Hot Encoding, Label Encoding, Frequency Encoding  
+- **Selected:**  
+  - Multi-class → One-Hot  
+  - Binary → Label Encoding  
+- **Reason:** Maintains consistent numeric representation for ML models  
+
+**Outcome:** Fully cleaned, numeric dataset ready for modeling  
+
+---
+
+### 🔍 Feature Selection
+- **Techniques tested:** Constant/Quasi-Constant, Pearson Correlation, Chi-Square  
+- **Selected:** All features retained  
+- **Reason:** All features statistically significant; no variance or correlation issues  
+
+---
+
+### 🔗 Merging Features
+- **Technique:** Concatenate numeric and categorical features using `pd.concat(axis=1)`  
+- **Outcome:** Final datasets (`X_training_data`, `X_testing_data`) for model training  
+
+---
+
+### ⚖️ Data Balancing
+- **Techniques tested:** Undersampling, Oversampling, SMOTE  
+- **Selected:** SMOTE applied on training set  
+- **Reason:** Creates synthetic minority samples while preserving original distribution, improving model learning  
+
+---
+
+### 📏 Feature Scaling
+- **Techniques tested:** StandardScaler, MinMaxScaler, RobustScaler, MaxAbsScaler  
+- **Selected:** StandardScaler  
+- **Reason:** Produced lowest combined skewness and kurtosis, ensuring uniform scale and stable learning  
+
+---
+
+### 🏋️ Model Training & Selection
+- **Models tested:** KNN, Naive Bayes, Logistic Regression, Decision Tree, Random Forest, AdaBoost, Gradient Boosting, XGBoost, SVM  
+- **Evaluation metric:** ROC-AUC (preferred over accuracy for imbalanced data)  
+- **Selected:** Logistic Regression (ROC-AUC = 0.83)  
+- **Reason:** Best balance of performance, interpretability, and efficiency; outputs probability via sigmoid function  
+
+---
+
+### ⚙️ Hyperparameter Tuning
+- **Techniques tested:** GridSearchCV, RandomizedSearchCV  
+- **Selected:** GridSearchCV (5-fold CV, ROC-AUC metric)  
+- **Best parameters:** `C=100`, `penalty=l2`, `solver=saga`, `max_iter=1000`  
+- **Performance:** CV ROC-AUC = 0.8611 | Test ROC-AUC = 0.8309  
+- **Reason:** Guarantees optimal combination for best model performance  
+
+---
+
+### 🌐 Deployment (Flask Web App)
+- **Frontend:** HTML forms with dropdowns for categorical features, real-time prediction display  
+- **Backend:** Loads trained model, scaler, encoding mappings; preprocesses input; outputs prediction + probability  
+- **Reason:** Ensures consistent preprocessing, real-time predictions, and user-friendly interface for business use
+
+---
+## **📦 Install required packages**
+> ```
+> pip install -r requirements.txt
+> ```
+
+## **🚀 Run the Project**
+> ```
+> python main.py
+> python app.py
+> ```
+---
+### **Open your browser and navigate to**
+> ```
+> http://127.0.0.1:5000/
+> ```
+
+---
+
+## **👤 Author**
+ ```
+ Varadhana Varshini Kolipakula
+ Machine Learning & Data Science Enthusiast
+ ```
+
+---
