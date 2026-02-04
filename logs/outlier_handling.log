@@ -1,0 +1,25 @@
+2026-01-22 22:10:55,751 - INFO - SeniorCitizen | ORIGINAL -> Skew=1.822, Kurt=1.321, Out=0.000, Score=3.144
+2026-01-22 22:10:55,868 - INFO - SeniorCitizen | WINSOR -> Skew=1.822, Kurt=1.321, Out=0.000, Score=3.144
+2026-01-22 22:10:55,868 - INFO - SeniorCitizen | IQR -> Skew=0.000, Kurt=0.000, Out=0.000, Score=0.000
+2026-01-22 22:10:55,870 - INFO - SeniorCitizen | MAD -> Skew=0.000, Kurt=0.000, Out=0.000, Score=0.000
+2026-01-22 22:10:55,871 - INFO - SeniorCitizen | QUANTILE -> Skew=1.822, Kurt=1.321, Out=0.000, Score=3.144
+2026-01-22 22:10:55,871 - INFO - SeniorCitizen | SELECTED = IQR | Score 3.144 -> 0.000 (100.0% improvement)
+2026-01-22 22:10:55,991 - INFO - tenure | ORIGINAL -> Skew=-0.244, Kurt=-1.289, Out=0.000, Score=1.533
+2026-01-22 22:10:56,114 - INFO - tenure | WINSOR -> Skew=-0.242, Kurt=-1.291, Out=0.000, Score=1.534
+2026-01-22 22:10:56,114 - INFO - tenure | IQR -> Skew=-0.244, Kurt=-1.289, Out=0.000, Score=1.533
+2026-01-22 22:10:56,115 - INFO - tenure | MAD -> Skew=-0.244, Kurt=-1.289, Out=0.000, Score=1.533
+2026-01-22 22:10:56,115 - INFO - tenure | QUANTILE -> Skew=-0.242, Kurt=-1.291, Out=0.000, Score=1.534
+2026-01-22 22:10:56,116 - INFO - tenure | SELECTED = ORIGINAL | Score 1.533 -> 1.533 (0.0% improvement)
+2026-01-22 22:10:56,231 - INFO - MonthlyCharges | ORIGINAL -> Skew=0.007, Kurt=0.176, Out=0.003, Score=0.185
+2026-01-22 22:10:56,341 - INFO - MonthlyCharges | WINSOR -> Skew=-0.011, Kurt=-0.821, Out=0.000, Score=0.832
+2026-01-22 22:10:56,341 - INFO - MonthlyCharges | IQR -> Skew=0.000, Kurt=-0.156, Out=0.000, Score=0.157
+2026-01-22 22:10:56,342 - INFO - MonthlyCharges | MAD -> Skew=0.001, Kurt=-0.530, Out=0.000, Score=0.531
+2026-01-22 22:10:56,342 - INFO - MonthlyCharges | QUANTILE -> Skew=0.000, Kurt=-0.327, Out=0.000, Score=0.327
+2026-01-22 22:10:56,343 - INFO - MonthlyCharges | SELECTED = IQR | Score 0.185 -> 0.157 (15.25% improvement)
+2026-01-22 22:10:56,453 - INFO - TotalCharges | ORIGINAL -> Skew=0.003, Kurt=0.174, Out=0.003, Score=0.180
+2026-01-22 22:10:56,563 - INFO - TotalCharges | WINSOR -> Skew=0.000, Kurt=-0.834, Out=0.000, Score=0.835
+2026-01-22 22:10:56,564 - INFO - TotalCharges | IQR -> Skew=-0.001, Kurt=-0.158, Out=0.000, Score=0.159
+2026-01-22 22:10:56,565 - INFO - TotalCharges | MAD -> Skew=-0.000, Kurt=-0.528, Out=0.000, Score=0.528
+2026-01-22 22:10:56,565 - INFO - TotalCharges | QUANTILE -> Skew=-0.000, Kurt=-0.328, Out=0.000, Score=0.328
+2026-01-22 22:10:56,565 - INFO - TotalCharges | SELECTED = IQR | Score 0.180 -> 0.159 (11.38% improvement)
+2026-01-22 22:10:56,681 - INFO - Automatic outlier handling completed

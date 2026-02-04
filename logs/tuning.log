@@ -1,0 +1,17 @@
+2026-02-03 23:48:59,191 - INFO - ===== Starting Logistic Regression Hyperparameter Tuning =====
+2026-02-03 23:49:59,001 - INFO - Best Logistic Regression Params: {'C': 100, 'max_iter': 1000, 'penalty': 'l2', 'solver': 'saga'}
+2026-02-03 23:49:59,001 - INFO - Best Logistic Regression CV ROC-AUC: 0.8611
+2026-02-03 23:49:59,004 - INFO - Test ROC-AUC Score: 0.8309
+2026-02-03 23:49:59,009 - INFO - Sample Test Predictions:
+   Actual  Predicted_Prob
+0       0        0.029789
+1       0        0.918189
+2       0        0.169490
+3       0        0.456274
+4       0        0.182300
+5       0        0.881873
+6       0        0.618375
+7       0        0.176663
+8       0        0.013754
+9       1        0.387294
+2026-02-03 23:49:59,009 - INFO - ===== Logistic Regression Hyperparameter Tuning Completed =====

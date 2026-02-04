@@ -1,0 +1,70 @@
+2026-02-03 23:48:44,463 - INFO - ===================================================
+2026-02-03 23:48:44,463 - INFO - Categorical to Numerical Conversion Started
+2026-02-03 23:48:44,463 - INFO - ===================================================
+2026-02-03 23:48:44,463 - INFO - Train Shape (Before): (5634, 18)
+2026-02-03 23:48:44,463 - INFO - Test Shape (Before): (1409, 18)
+2026-02-03 23:48:44,463 - INFO - Train Columns: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod', 'Service_Provider', 'Region_Type', 'Device_Status']
+2026-02-03 23:48:44,463 - INFO - Test Columns: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod', 'Service_Provider', 'Region_Type', 'Device_Status']
+2026-02-03 23:48:44,464 - INFO - gender | Unique (Train): ['Male' 'Female']
+2026-02-03 23:48:44,464 - INFO - Partner | Unique (Train): ['No' 'Yes']
+2026-02-03 23:48:44,465 - INFO - Dependents | Unique (Train): ['No' 'Yes']
+2026-02-03 23:48:44,465 - INFO - PhoneService | Unique (Train): ['No' 'Yes']
+2026-02-03 23:48:44,465 - INFO - MultipleLines | Unique (Train): ['No phone service' 'No' 'Yes']
+2026-02-03 23:48:44,465 - INFO - InternetService | Unique (Train): ['DSL' 'Fiber optic' 'No']
+2026-02-03 23:48:44,466 - INFO - OnlineSecurity | Unique (Train): ['No' 'Yes' 'No internet service']
+2026-02-03 23:48:44,466 - INFO - OnlineBackup | Unique (Train): ['No' 'Yes' 'No internet service']
+2026-02-03 23:48:44,466 - INFO - DeviceProtection | Unique (Train): ['Yes' 'No' 'No internet service']
+2026-02-03 23:48:44,466 - INFO - TechSupport | Unique (Train): ['No' 'Yes' 'No internet service']
+2026-02-03 23:48:44,467 - INFO - StreamingTV | Unique (Train): ['Yes' 'No' 'No internet service']
+2026-02-03 23:48:44,467 - INFO - StreamingMovies | Unique (Train): ['Yes' 'No' 'No internet service']
+2026-02-03 23:48:44,467 - INFO - Contract | Unique (Train): ['Month-to-month' 'Two year' 'One year']
+2026-02-03 23:48:44,467 - INFO - PaperlessBilling | Unique (Train): ['No' 'Yes']
+2026-02-03 23:48:44,468 - INFO - PaymentMethod | Unique (Train): ['Electronic check' 'Mailed check' 'Credit card (automatic)'
+ 'Bank transfer (automatic)']
+2026-02-03 23:48:44,468 - INFO - Service_Provider | Unique (Train): ['Vi' 'Jio' 'Airtel' 'BSNL']
+2026-02-03 23:48:44,468 - INFO - Region_Type | Unique (Train): ['Suburban' 'Urban' 'Rural']
+2026-02-03 23:48:44,468 - INFO - Device_Status | Unique (Train): ['New' 'Old']
+2026-02-03 23:48:44,470 - INFO - gender -> BINARY
+2026-02-03 23:48:44,471 - INFO - Partner -> BINARY
+2026-02-03 23:48:44,472 - INFO - Dependents -> BINARY
+2026-02-03 23:48:44,473 - INFO - PhoneService -> BINARY
+2026-02-03 23:48:44,479 - INFO - MultipleLines -> ONE HOT
+2026-02-03 23:48:44,482 - INFO - InternetService -> ONE HOT
+2026-02-03 23:48:44,485 - INFO - OnlineSecurity -> ONE HOT
+2026-02-03 23:48:44,488 - INFO - OnlineBackup -> ONE HOT
+2026-02-03 23:48:44,491 - INFO - DeviceProtection -> ONE HOT
+2026-02-03 23:48:44,494 - INFO - TechSupport -> ONE HOT
+2026-02-03 23:48:44,497 - INFO - StreamingTV -> ONE HOT
+2026-02-03 23:48:44,500 - INFO - StreamingMovies -> ONE HOT
+2026-02-03 23:48:44,503 - INFO - Contract -> ONE HOT
+2026-02-03 23:48:44,505 - INFO - PaperlessBilling -> BINARY
+2026-02-03 23:48:44,507 - INFO - PaymentMethod -> ONE HOT
+2026-02-03 23:48:44,510 - INFO - Service_Provider -> ONE HOT
+2026-02-03 23:48:44,514 - INFO - Region_Type -> ONE HOT
+2026-02-03 23:48:44,517 - INFO - Device_Status -> BINARY
+2026-02-03 23:48:44,517 - INFO - ===================================================
+2026-02-03 23:48:44,517 - INFO - After Encoding
+2026-02-03 23:48:44,517 - INFO - ===================================================
+2026-02-03 23:48:44,517 - INFO - Final Train Shape: (5634, 32)
+2026-02-03 23:48:44,517 - INFO - Final Test Shape: (1409, 32)
+2026-02-03 23:48:44,518 - INFO - Final Train Columns:
+Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling',
+       'Device_Status', 'No phone service', 'Yes', 'Fiber optic', 'No',
+       'No internet service', 'Yes', 'No internet service', 'Yes',
+       'No internet service', 'Yes', 'No internet service', 'Yes',
+       'No internet service', 'Yes', 'No internet service', 'Yes', 'One year',
+       'Two year', 'Credit card (automatic)', 'Electronic check',
+       'Mailed check', 'BSNL', 'Jio', 'Vi', 'Suburban', 'Urban'],
+      dtype='object')
+2026-02-03 23:48:44,518 - INFO - Final Test Columns:
+Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling',
+       'Device_Status', 'No phone service', 'Yes', 'Fiber optic', 'No',
+       'No internet service', 'Yes', 'No internet service', 'Yes',
+       'No internet service', 'Yes', 'No internet service', 'Yes',
+       'No internet service', 'Yes', 'No internet service', 'Yes', 'One year',
+       'Two year', 'Credit card (automatic)', 'Electronic check',
+       'Mailed check', 'BSNL', 'Jio', 'Vi', 'Suburban', 'Urban'],
+      dtype='object')
+2026-02-03 23:48:44,518 - INFO - ===================================================
+2026-02-03 23:48:44,518 - INFO - Categorical to Numerical Conversion Completed
+2026-02-03 23:48:44,518 - INFO - ===================================================

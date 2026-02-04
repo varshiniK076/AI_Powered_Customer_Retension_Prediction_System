@@ -1,0 +1,253 @@
+2026-02-03 23:48:41,050 - INFO - Index(['customerID', 'gender', 'SeniorCitizen', 'Partner', 'Dependents',
+       'tenure', 'PhoneService', 'MultipleLines', 'InternetService',
+       'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport',
+       'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling',
+       'PaymentMethod', 'MonthlyCharges', 'TotalCharges', 'Churn',
+       'Service_Provider', 'Region_Type', 'Device_Status'],
+      dtype='object')
+2026-02-03 23:48:41,050 - INFO - (7043, 24)
+2026-02-03 23:48:41,056 - INFO - Total Count of Gender: gender
+Male      3555
+Female    3488
+Name: count, dtype: int64
+2026-02-03 23:48:41,057 - INFO - Total Count of SeniorCitizen: SeniorCitizen
+0    5901
+1    1142
+Name: count, dtype: int64
+2026-02-03 23:48:41,058 - INFO - Total Count of InternetService: InternetService
+Fiber optic    3096
+DSL            2421
+No             1526
+Name: count, dtype: int64
+2026-02-03 23:48:41,060 - INFO - Total Count of Service_Provider: Service_Provider
+Jio       2858
+Airtel    2113
+Vi        1377
+BSNL       695
+Name: count, dtype: int64
+2026-02-03 23:48:41,061 - INFO - Before : customerID           object
+gender               object
+SeniorCitizen         int64
+Partner              object
+Dependents           object
+tenure                int64
+PhoneService         object
+MultipleLines        object
+InternetService      object
+OnlineSecurity       object
+OnlineBackup         object
+DeviceProtection     object
+TechSupport          object
+StreamingTV          object
+StreamingMovies      object
+Contract             object
+PaperlessBilling     object
+PaymentMethod        object
+MonthlyCharges      float64
+TotalCharges         object
+Churn                object
+Service_Provider     object
+Region_Type          object
+Device_Status        object
+dtype: object
+2026-02-03 23:48:41,065 - INFO - After : customerID           object
+gender               object
+SeniorCitizen         int64
+Partner              object
+Dependents           object
+tenure                int64
+PhoneService         object
+MultipleLines        object
+InternetService      object
+OnlineSecurity       object
+OnlineBackup         object
+DeviceProtection     object
+TechSupport          object
+StreamingTV          object
+StreamingMovies      object
+Contract             object
+PaperlessBilling     object
+PaymentMethod        object
+MonthlyCharges      float64
+TotalCharges        float64
+Churn                object
+Service_Provider     object
+Region_Type          object
+Device_Status        object
+dtype: object
+2026-02-03 23:48:41,065 - INFO - =============================================================
+2026-02-03 23:48:41,069 - INFO - Index(['gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure',
+       'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity',
+       'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV',
+       'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod',
+       'MonthlyCharges', 'TotalCharges', 'Service_Provider', 'Region_Type',
+       'Device_Status'],
+      dtype='object')
+2026-02-03 23:48:41,070 - INFO - (7043, 22)
+2026-02-03 23:48:41,070 - INFO - (7043,)
+2026-02-03 23:48:41,070 - INFO - Starting missing value evaluation
+2026-02-03 23:48:41,070 - INFO - ==========================================================
+2026-02-03 23:48:41,070 - INFO - Missing values BEFORE imputation:
+2026-02-03 23:48:41,076 - INFO - 
+customerID           0
+gender               0
+SeniorCitizen        0
+Partner              0
+Dependents           0
+tenure               0
+PhoneService         0
+MultipleLines        0
+InternetService      0
+OnlineSecurity       0
+OnlineBackup         0
+DeviceProtection     0
+TechSupport          0
+StreamingTV          0
+StreamingMovies      0
+Contract             0
+PaperlessBilling     0
+PaymentMethod        0
+MonthlyCharges       0
+TotalCharges        11
+Churn                0
+Service_Provider     0
+Region_Type          0
+Device_Status        0
+dtype: int64
+2026-02-03 23:48:41,473 - INFO - Imputation technique comparison:
+2026-02-03 23:48:41,476 - INFO - 
+       Technique  Mean_Difference  Std_Difference    Score
+          RANDOM         0.032752        0.008852 0.041604
+   INTERPOLATION         0.054247        0.173382 0.227629
+   BACKWARD_FILL         0.358887        0.002904 0.361791
+            MEAN         0.000000        0.442776 0.442776
+        BAYESIAN         0.323231        0.163999 0.487230
+    FORWARD_FILL         0.467381        0.193287 0.660668
+          SIMPLE         0.345878        0.375241 0.721119
+          MEDIAN         0.345878        0.375241 0.721119
+             KNN         0.874585        0.011055 0.885640
+            MODE         0.883647        0.002121 0.885768
+        CONSTANT         1.281602        0.483757 1.765360
+            MICE         1.263308        0.539511 1.802819
+END_DISTRIBUTION         2.655241        3.523648 6.178889
+       ARBITRARY         3.012661        4.658261 7.670922
+2026-02-03 23:48:41,477 - INFO - ==========================================================
+2026-02-03 23:48:41,477 - INFO - BEST MISSING VALUE TECHNIQUE : RANDOM
+2026-02-03 23:48:41,477 - INFO - FINAL SCORE (Mean + Std Diff): 0.041604
+2026-02-03 23:48:41,498 - INFO - Missing values AFTER imputation:
+2026-02-03 23:48:41,503 - INFO - 
+gender              0
+SeniorCitizen       0
+Partner             0
+Dependents          0
+tenure              0
+PhoneService        0
+MultipleLines       0
+InternetService     0
+OnlineSecurity      0
+OnlineBackup        0
+DeviceProtection    0
+TechSupport         0
+StreamingTV         0
+StreamingMovies     0
+Contract            0
+PaperlessBilling    0
+PaymentMethod       0
+MonthlyCharges      0
+TotalCharges        0
+Service_Provider    0
+Region_Type         0
+Device_Status       0
+Churn               0
+dtype: int64
+2026-02-03 23:48:41,503 - INFO - ====== Missing value evaluation completed successfully ======
+2026-02-03 23:48:43,498 - INFO - ========== VARIABLE TRANSFORMATION APPLIED SUCCESSFULLY ==========
+2026-02-03 23:48:43,498 - INFO - Best transformations per column:
+2026-02-03 23:48:43,498 - INFO - Variable Transformation Applied | Column: tenure -> Method: YEOJOHNSON
+2026-02-03 23:48:43,498 - INFO - Variable Transformation Applied | Column: MonthlyCharges -> Method: QUANTILE
+2026-02-03 23:48:43,498 - INFO - Variable Transformation Applied | Column: TotalCharges -> Method: QUANTILE
+2026-02-03 23:48:43,498 - INFO - Transformed train shape: (5634, 4)
+2026-02-03 23:48:43,498 - INFO - Transformed test shape: (1409, 4)
+2026-02-03 23:48:43,498 - INFO - ========== VARIABLE TRANSFORMATION STAGE COMPLETED ==========
+2026-02-03 23:48:44,461 - INFO - ====== OUTLIER HANDLING SUMMARY ======
+2026-02-03 23:48:44,461 - INFO - SeniorCitizen -> SKIPPED | 0 -> 0 (0%)
+2026-02-03 23:48:44,461 - INFO - tenure -> ORIGINAL | 1.533 -> 1.533 (0.0%)
+2026-02-03 23:48:44,461 - INFO - MonthlyCharges -> IQR | 0.185 -> 0.157 (15.25%)
+2026-02-03 23:48:44,461 - INFO - TotalCharges -> IQR | 0.18 -> 0.159 (11.38%)
+2026-02-03 23:48:44,461 - INFO - ====== Outlier Handling Completed ======
+2026-02-03 23:48:44,462 - INFO - SeniorCitizen     0
+tenure            0
+MonthlyCharges    0
+TotalCharges      0
+dtype: int64
+2026-02-03 23:48:44,463 - INFO - SeniorCitizen     0
+tenure            0
+MonthlyCharges    0
+TotalCharges      0
+dtype: int64
+2026-02-03 23:48:44,463 - INFO - ===================================
+2026-02-03 23:48:44,463 - INFO - Categorical to Numerical Encoding
+2026-02-03 23:48:44,463 - INFO - ===================================
+2026-02-03 23:48:44,463 - INFO - Categorical Train Columns: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod', 'Service_Provider', 'Region_Type', 'Device_Status']
+2026-02-03 23:48:44,463 - INFO - Categorical Test Columns: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod', 'Service_Provider', 'Region_Type', 'Device_Status']
+2026-02-03 23:48:44,463 - INFO - categorical Train Columns : (5634, 18)
+2026-02-03 23:48:44,463 - INFO - Categorical Test Columns : (1409, 18)
+2026-02-03 23:48:44,518 - INFO - ===================================
+2026-02-03 23:48:44,518 - INFO - After Encoding
+2026-02-03 23:48:44,518 - INFO - ===================================
+2026-02-03 23:48:44,518 - INFO - Final X_train_numeric Shape: (5634, 32)
+2026-02-03 23:48:44,518 - INFO - Final X_test_numeric Shape: (1409, 32)
+2026-02-03 23:48:44,518 - INFO - Final Training Columns:
+Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling',
+       'Device_Status', 'No phone service', 'Yes', 'Fiber optic', 'No',
+       'No internet service', 'Yes', 'No internet service', 'Yes',
+       'No internet service', 'Yes', 'No internet service', 'Yes',
+       'No internet service', 'Yes', 'No internet service', 'Yes', 'One year',
+       'Two year', 'Credit card (automatic)', 'Electronic check',
+       'Mailed check', 'BSNL', 'Jio', 'Vi', 'Suburban', 'Urban'],
+      dtype='object')
+2026-02-03 23:48:44,518 - INFO - Final Testing Columns:
+Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling',
+       'Device_Status', 'No phone service', 'Yes', 'Fiber optic', 'No',
+       'No internet service', 'Yes', 'No internet service', 'Yes',
+       'No internet service', 'Yes', 'No internet service', 'Yes',
+       'No internet service', 'Yes', 'No internet service', 'Yes', 'One year',
+       'Two year', 'Credit card (automatic)', 'Electronic check',
+       'Mailed check', 'BSNL', 'Jio', 'Vi', 'Suburban', 'Urban'],
+      dtype='object')
+2026-02-03 23:48:44,518 - INFO - Encoding step completed successfully
+2026-02-03 23:48:44,518 - INFO - ===================================
+2026-02-03 23:48:44,518 - INFO - FEATURE SELECTION (NUMERIC ONLY)
+2026-02-03 23:48:44,518 - INFO - ===================================
+2026-02-03 23:48:44,518 - INFO - Numeric Train Shape (Before): (5634, 4)
+2026-02-03 23:48:44,518 - INFO - Numeric Test Shape  (Before): (1409, 4)
+2026-02-03 23:48:44,526 - INFO - Numeric Train Shape (After): (5634, 4)
+2026-02-03 23:48:44,526 - INFO - Numeric Test Shape  (After): (1409, 4)
+2026-02-03 23:48:44,526 - INFO - Selected Numeric Features: 4
+2026-02-03 23:48:44,526 - INFO - NUMERIC FEATURE SELECTION DONE
+2026-02-03 23:48:44,526 - INFO - ===================================
+2026-02-03 23:48:44,526 - INFO - CONCATENATING NUMERIC + CATEGORICAL
+2026-02-03 23:48:44,526 - INFO - ===================================
+2026-02-03 23:48:44,526 - INFO - Numeric Train Shape : (5634, 4)
+2026-02-03 23:48:44,526 - INFO - Categorical Train Shape : (5634, 32)
+2026-02-03 23:48:44,526 - INFO - Numeric Test Shape  : (1409, 4)
+2026-02-03 23:48:44,526 - INFO - Categorical Test Shape  : (1409, 32)
+2026-02-03 23:48:44,527 - INFO - ===================================
+2026-02-03 23:48:44,527 - INFO - FINAL DATASET
+2026-02-03 23:48:44,527 - INFO - ===================================
+2026-02-03 23:48:44,527 - INFO - Final Train Shape: (5634, 36)
+2026-02-03 23:48:44,527 - INFO - Final Test Shape : (1409, 36)
+2026-02-03 23:48:44,527 - INFO - Final Columns Count: 36
+2026-02-03 23:48:44,527 - INFO - Starting Scaling and Data Balancing
+2026-02-03 23:48:46,836 - INFO - Scaling and Data Balancing completed successfully
+2026-02-03 23:48:46,836 - INFO - Training shape after SMOTE+Scaling: (8278, 36)
+2026-02-03 23:48:46,836 - INFO - Testing shape after Scaling: (1409, 36)
+2026-02-03 23:48:46,837 - INFO - Churn distribution after balancing:
+Churn
+0    4139
+1    4139
+2026-02-03 23:48:59,191 - INFO - ===== Starting Hyperparameter Tuning =====
+2026-02-03 23:49:59,011 - INFO - Tuned Logistic Regression Test Accuracy: 0.7466
+2026-02-03 23:49:59,011 - INFO - Tuned Logistic Regression Test ROC-AUC: 0.8309
+2026-02-03 23:49:59,012 - INFO - Tuned Logistic Regression saved as 'best_logistic_model.pkl'
+2026-02-03 23:49:59,012 - INFO - ===== Hyperparameter Tuning Completed =====

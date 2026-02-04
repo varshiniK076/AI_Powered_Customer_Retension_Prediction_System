@@ -1,0 +1,19 @@
+2026-02-03 23:48:44,518 - INFO - ===================================
+2026-02-03 23:48:44,519 - INFO - FEATURE SELECTION (NUMERIC ONLY)
+2026-02-03 23:48:44,519 - INFO - ===================================
+2026-02-03 23:48:44,519 - INFO - Train Shape (Before FS): (5634, 4)
+2026-02-03 23:48:44,519 - INFO - Test Shape (Before FS): (1409, 4)
+2026-02-03 23:48:44,520 - INFO - Removed constant: []
+2026-02-03 23:48:44,522 - INFO - Removed quasi-constant: []
+2026-02-03 23:48:44,523 - INFO - SeniorCitizen | p-value = 0.000000
+2026-02-03 23:48:44,524 - INFO - tenure | p-value = 0.000000
+2026-02-03 23:48:44,524 - INFO - MonthlyCharges | p-value = 0.000000
+2026-02-03 23:48:44,525 - INFO - TotalCharges | p-value = 0.000000
+2026-02-03 23:48:44,525 - INFO - Removed by correlation: []
+2026-02-03 23:48:44,525 - INFO - ===================================
+2026-02-03 23:48:44,525 - INFO - FEATURE SELECTION COMPLETED
+2026-02-03 23:48:44,525 - INFO - ===================================
+2026-02-03 23:48:44,525 - INFO - Train Shape (After FS): (5634, 4)
+2026-02-03 23:48:44,525 - INFO - Test Shape (After FS): (1409, 4)
+2026-02-03 23:48:44,525 - INFO - Final Numeric Columns:
+Index(['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges'], dtype='object')

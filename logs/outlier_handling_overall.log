@@ -1,0 +1,20 @@
+2026-02-03 23:48:43,499 - INFO - SeniorCitizen | SKIPPED (binary/dummy feature)
+2026-02-03 23:48:43,501 - INFO - tenure | ORIGINAL -> Skew=-0.244, Kurt=-1.289, OutRatio=0.000, OutCount=0, Score=1.533
+2026-02-03 23:48:43,636 - INFO - tenure | WINSOR -> Skew=-0.242, Kurt=-1.291, OutRatio=0.000, OutCount=0, Score=1.534
+2026-02-03 23:48:43,637 - INFO - tenure | IQR -> Skew=-0.244, Kurt=-1.289, OutRatio=0.000, OutCount=0, Score=1.533
+2026-02-03 23:48:43,638 - INFO - tenure | MAD -> Skew=-0.244, Kurt=-1.289, OutRatio=0.000, OutCount=0, Score=1.533
+2026-02-03 23:48:43,639 - INFO - tenure | QUANTILE -> Skew=-0.242, Kurt=-1.291, OutRatio=0.000, OutCount=0, Score=1.534
+2026-02-03 23:48:43,639 - INFO - tenure | SELECTED = ORIGINAL | Outliers 0 -> 0 (reduced by 0) | Score 1.533 -> 1.533
+2026-02-03 23:48:43,766 - INFO - MonthlyCharges | ORIGINAL -> Skew=0.007, Kurt=0.176, OutRatio=0.003, OutCount=16, Score=0.185
+2026-02-03 23:48:43,887 - INFO - MonthlyCharges | WINSOR -> Skew=-0.011, Kurt=-0.821, OutRatio=0.000, OutCount=0, Score=0.832
+2026-02-03 23:48:43,888 - INFO - MonthlyCharges | IQR -> Skew=0.000, Kurt=-0.156, OutRatio=0.000, OutCount=0, Score=0.157
+2026-02-03 23:48:43,890 - INFO - MonthlyCharges | MAD -> Skew=0.001, Kurt=-0.530, OutRatio=0.000, OutCount=0, Score=0.531
+2026-02-03 23:48:43,890 - INFO - MonthlyCharges | QUANTILE -> Skew=0.000, Kurt=-0.327, OutRatio=0.000, OutCount=0, Score=0.327
+2026-02-03 23:48:43,891 - INFO - MonthlyCharges | SELECTED = IQR | Outliers 16 -> 0 (reduced by 16) | Score 0.185 -> 0.157
+2026-02-03 23:48:44,058 - INFO - TotalCharges | ORIGINAL -> Skew=0.003, Kurt=0.174, OutRatio=0.003, OutCount=15, Score=0.180
+2026-02-03 23:48:44,312 - INFO - TotalCharges | WINSOR -> Skew=0.000, Kurt=-0.834, OutRatio=0.000, OutCount=0, Score=0.835
+2026-02-03 23:48:44,313 - INFO - TotalCharges | IQR -> Skew=-0.001, Kurt=-0.158, OutRatio=0.000, OutCount=0, Score=0.159
+2026-02-03 23:48:44,314 - INFO - TotalCharges | MAD -> Skew=-0.000, Kurt=-0.528, OutRatio=0.000, OutCount=0, Score=0.528
+2026-02-03 23:48:44,315 - INFO - TotalCharges | QUANTILE -> Skew=-0.000, Kurt=-0.328, OutRatio=0.000, OutCount=0, Score=0.328
+2026-02-03 23:48:44,315 - INFO - TotalCharges | SELECTED = IQR | Outliers 15 -> 0 (reduced by 15) | Score 0.180 -> 0.159
+2026-02-03 23:48:44,461 - INFO - Automatic outlier handling completed successfully

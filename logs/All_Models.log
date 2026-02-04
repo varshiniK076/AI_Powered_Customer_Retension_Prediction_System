@@ -1,0 +1,32 @@
+2026-02-03 23:48:46,837 - INFO - =========KNeighborsClassifier===========
+2026-02-03 23:48:46,861 - INFO - KNN Test Accuracy : 0.6962384669978708
+2026-02-03 23:48:46,861 - INFO - =========GaussianNB===========
+2026-02-03 23:48:46,874 - INFO - Naive Bayes Test Accuracy : 0.652235628105039
+2026-02-03 23:48:46,874 - INFO - =========LogisticRegression===========
+2026-02-03 23:48:46,908 - INFO - LogisticRegression Test Accuracy : 0.7459190915542938
+2026-02-03 23:48:46,908 - INFO - =========DecisionTreeClassifier===========
+2026-02-03 23:48:46,960 - INFO - DecisionTreeClassifier Test Accuracy : 0.7196593328601846
+2026-02-03 23:48:46,960 - INFO - =========RandomForestClassifier===========
+2026-02-03 23:48:47,006 - INFO - RandomForestClassifier Test Accuracy : 0.7551454932576295
+2026-02-03 23:48:47,006 - INFO - =========AdaBoostClassifier===========
+2026-02-03 23:48:47,056 - INFO - AdaBoostClassifier Test Accuracy : 0.7324343506032647
+2026-02-03 23:48:47,056 - INFO - =========GradientBoostingClassifier===========
+2026-02-03 23:48:47,113 - INFO - GradientBoostingClassifier Test Accuracy : 0.7317246273953159
+2026-02-03 23:48:47,113 - INFO - =========XGBClassifier===========
+2026-02-03 23:48:48,908 - INFO - XGBClassifier Test Accuracy : 0.7551454932576295
+2026-02-03 23:48:48,908 - INFO - =========SVM===========
+2026-02-03 23:48:58,559 - INFO - SVM Test Accuracy : 0.7537260468417317
+2026-02-03 23:48:59,190 - INFO - ROC-AUC plot saved at auc_roc_plotting\auc_roc_curve.png
+2026-02-03 23:48:59,191 - INFO - KNN ROC-AUC Score: 0.7471737838745511
+2026-02-03 23:48:59,191 - INFO - Naive Bayes ROC-AUC Score: 0.8083378542457826
+2026-02-03 23:48:59,191 - INFO - Logistic Regression ROC-AUC Score: 0.8310147510914774
+2026-02-03 23:48:59,191 - INFO - Decision Tree ROC-AUC Score: 0.6717158800279004
+2026-02-03 23:48:59,191 - INFO - Random Forest ROC-AUC Score: 0.7749928957090082
+2026-02-03 23:48:59,191 - INFO - AdaBoost ROC-AUC Score: 0.8143300007750136
+2026-02-03 23:48:59,191 - INFO - Gradient Boosting ROC-AUC Score: 0.8258169934640522
+2026-02-03 23:48:59,191 - INFO - XGBoost ROC-AUC Score: 0.804948461598078
+2026-02-03 23:48:59,191 - INFO - SVM ROC-AUC Score: 0.8206140690795422
+2026-02-03 23:48:59,191 - INFO - ===================================
+2026-02-03 23:48:59,191 - INFO - BEST MODEL: Logistic Regression
+2026-02-03 23:48:59,191 - INFO - BEST ROC-AUC: 0.8310147510914774
+2026-02-03 23:48:59,191 - INFO - ===================================

@@ -1,0 +1,20 @@
+2026-02-03 23:48:41,509 - INFO - Starting variable transformation (AUTO APPLY MODE)
+2026-02-03 23:48:41,509 - INFO - Numeric columns: ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges']
+2026-02-03 23:48:41,510 - INFO - SeniorCitizen is binary. Skipping.
+2026-02-03 23:48:41,511 - INFO - tenure | ORIGINAL -> Skew=0.237, Kurtosis=-1.387, Score = 1.625
+2026-02-03 23:48:42,467 - INFO - tenure | YEOJOHNSON -> Skew=-0.244, Kurtosis=-1.289, Score = 1.533
+2026-02-03 23:48:42,468 - INFO - tenure | QUANTILE -> Skew=1.829, Kurtosis=4.920, Score = 6.750
+2026-02-03 23:48:42,468 - INFO - tenure | SELECTED = YEOJOHNSON | FINAL Skew=-0.244, Kurtosis=-1.289, Score = 6.750
+2026-02-03 23:48:42,649 - INFO - MonthlyCharges | ORIGINAL -> Skew=-0.224, Kurtosis=-1.260, Score = 1.485
+2026-02-03 23:48:42,897 - INFO - MonthlyCharges | LOG -> Skew=-0.721, Kurtosis=-0.962, Score = 1.683
+2026-02-03 23:48:42,897 - INFO - MonthlyCharges | BOXCOX -> Skew=-0.265, Kurtosis=-1.252, Score = 1.518
+2026-02-03 23:48:42,897 - INFO - MonthlyCharges | YEOJOHNSON -> Skew=-0.261, Kurtosis=-1.254, Score = 1.514
+2026-02-03 23:48:42,898 - INFO - MonthlyCharges | QUANTILE -> Skew=0.007, Kurtosis=0.176, Score = 0.182
+2026-02-03 23:48:42,898 - INFO - MonthlyCharges | SELECTED = QUANTILE | FINAL Skew=0.007, Kurtosis=0.176, Score = 0.182
+2026-02-03 23:48:43,073 - INFO - TotalCharges | ORIGINAL -> Skew=0.947, Kurtosis=-0.268, Score = 1.215
+2026-02-03 23:48:43,303 - INFO - TotalCharges | LOG -> Skew=-0.745, Kurtosis=-0.309, Score = 1.054
+2026-02-03 23:48:43,304 - INFO - TotalCharges | BOXCOX -> Skew=-0.147, Kurtosis=-1.048, Score = 1.194
+2026-02-03 23:48:43,304 - INFO - TotalCharges | YEOJOHNSON -> Skew=-0.146, Kurtosis=-1.051, Score = 1.196
+2026-02-03 23:48:43,304 - INFO - TotalCharges | QUANTILE -> Skew=0.003, Kurtosis=0.174, Score = 0.177
+2026-02-03 23:48:43,305 - INFO - TotalCharges | SELECTED = QUANTILE | FINAL Skew=0.003, Kurtosis=0.174, Score = 0.177
+2026-02-03 23:48:43,498 - INFO - Variable transformation completed successfully
