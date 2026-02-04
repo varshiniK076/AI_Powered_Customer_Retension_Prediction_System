@@ -1,0 +1,239 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Telecom Churn Predictor</title>-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="container">-->
+<!--    <h1>Telecom Customer Churn Prediction</h1>-->
+<!--    <p class="subtitle">AI-powered prediction to identify customer churn risk</p>-->
+
+<!--    <div class="card">-->
+<!--        <h2>Customer Information</h2>-->
+
+<!--        <div class="grid">-->
+<!--            <div>-->
+<!--                <label>Senior Citizen</label>-->
+<!--                <select id="senior">-->
+<!--                    <option value="0">No</option>-->
+<!--                    <option value="1">Yes</option>-->
+<!--                </select>-->
+<!--            </div>-->
+
+<!--            <div>-->
+<!--                <label>Tenure (months)</label>-->
+<!--                <input type="range" id="tenure" min="0" max="72" value="12">-->
+<!--                <span id="tenureVal">12</span>-->
+<!--            </div>-->
+
+<!--            <div>-->
+<!--                <label>Monthly Charges</label>-->
+<!--                <input type="number" id="monthly" placeholder="₹ Amount">-->
+<!--            </div>-->
+
+<!--            <div>-->
+<!--                <label>Total Charges</label>-->
+<!--                <input type="number" id="total" placeholder="₹ Amount">-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <button onclick="predictChurn()">Predict Churn</button>-->
+
+<!--        <div id="loading" class="hidden">Predicting...</div>-->
+<!--        <div id="result"></div>-->
+<!--    </div>-->
+
+<!--    <footer>© 2026 Telecom Churn Prediction | ML Project</footer>-->
+<!--</div>-->
+
+<!--<script src="{{ url_for('static', filename='js/script.js') }}"></script>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecom Churn AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --primary: #4338ca; --accent: #fbbf24; --bg: #f8fafc; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); margin: 0; color: #1e293b; }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
+            color: white; padding: 40px 20px; text-align: center;
+            border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 25px -5px rgba(67, 56, 202, 0.4);
+        }
+        .header h1 { margin: 0; font-weight: 700; font-size: 2.2rem; }
+        .header p { opacity: 0.9; margin-top: 5px; font-weight: 300; }
+
+        /* PROVIDER SELECTION */
+        .provider-wrapper {
+            display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap;
+        }
+        .provider-card {
+            background: white; border-radius: 16px; padding: 15px; width: 100px; height: 100px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .provider-card img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 5px; }
+        .provider-card span { font-size: 0.8rem; font-weight: 600; color: #64748b; }
+
+        /* Active State for Provider */
+        .provider-card:hover { transform: translateY(-5px); }
+        .provider-card.active { border-color: var(--accent); box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.3); }
+        .provider-card.active span { color: var(--primary); }
+
+        /* MAIN CONTAINER */
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .card-section { background: white; border-radius: 20px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .section-title {
+            font-size: 1.1rem; font-weight: 600; color: var(--primary); margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;
+        }
+
+        /* GRID INPUTS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 8px; color: #475569; }
+        .form-control {
+            width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px;
+            font-family: inherit; transition: 0.3s; box-sizing: border-box; background: #f8fafc;
+        }
+        .form-control:focus { outline: none; border-color: var(--primary); background: white; }
+
+        /* PREDICT BUTTON */
+        .btn-predict {
+            width: 100%; padding: 18px; background: var(--primary); color: white; border: none;
+            border-radius: 12px; font-size: 1.1rem; font-weight: 600; cursor: pointer;
+            transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .btn-predict:hover { background: #3730a3; transform: scale(1.01); }
+
+        /* RESULT BOX */
+        .result-box { display: none; padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .result-box.show { display: block; }
+        .safe { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+        .risk { background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; }
+        @keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        /* LOADING SPINNER */
+        .spinner { display: none; width: 20px; height: 20px; border: 3px solid #ffffff; border-top: 3px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Telecom Churn AI</h1>
+        <p>Advanced Customer Retention System</p>
+
+        <div class="provider-wrapper">
+            <div class="provider-card active" onclick="selectProvider('Jio', this)">
+                <img src="{{ url_for('static', filename='images/Jio.png') }}" alt="Jio">
+                <span>Jio</span>
+            </div>
+            <div class="provider-card" onclick="selectProvider('Airtel', this)">
+                <img src="{{ url_for('static', filename='images/airtel.jpg') }}" alt="Airtel">
+                <span>Airtel</span>
+            </div>
+            <div class="provider-card" onclick="selectProvider('Vi', this)">
+                <img src="{{ url_for('static', filename='images/VI.jpg') }}" alt="Vi">
+                <span>Vi</span>
+            </div>
+            <div class="provider-card" onclick="selectProvider('BSNL', this)">
+                <img src="{{ url_for('static', filename='images/BSNL.png') }}" alt="BSNL">
+                <span>BSNL</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        {% if prediction_text %}
+        <div class="result-box show {{ result_class }}" id="result">
+            <h2 style="margin:0; font-size:1.8rem;">{{ prediction_text }}</h2>
+            <p style="font-size:1.1rem; margin-top:10px;">{{ message }}</p>
+        </div>
+        {% endif %}
+
+        <form action="/predict" method="POST" onsubmit="showLoading()">
+            <input type="hidden" name="service_provider" id="selected_provider" value="Jio">
+
+            <div class="card-section">
+                <div class="section-title"><i class="fas fa-user"></i> Customer Profile</div>
+                <div class="grid">
+                    <div class="form-group"><label>Gender</label><select name="gender" class="form-control"><option>Male</option><option>Female</option></select></div>
+                    <div class="form-group"><label>Senior Citizen</label><select name="senior" class="form-control"><option value="0">No</option><option value="1">Yes</option></select></div>
+                    <div class="form-group"><label>Partner</label><select name="partner" class="form-control"><option>Yes</option><option>No</option></select></div>
+                    <div class="form-group"><label>Dependents</label><select name="dependents" class="form-control"><option>Yes</option><option>No</option></select></div>
+                    <div class="form-group"><label>Region</label><select name="region" class="form-control"><option value="Urban">Urban</option><option value="Suburban">Suburban</option><option value="Rural">Rural</option></select></div>
+                </div>
+            </div>
+
+            <div class="card-section">
+                <div class="section-title"><i class="fas fa-wifi"></i> Services</div>
+                <div class="grid">
+                    <div class="form-group"><label>Internet Service</label><select name="internet_service" class="form-control"><option value="Fiber optic">Fiber Optic</option><option value="DSL">DSL</option><option value="No">No Internet</option></select></div>
+                    <div class="form-group"><label>Phone Service</label><select name="phone_service" class="form-control"><option>Yes</option><option>No</option></select></div>
+                    <div class="form-group"><label>Multiple Lines</label><select name="multiple_lines" class="form-control"><option>No</option><option>Yes</option><option>No phone service</option></select></div>
+                    <div class="form-group"><label>Online Security</label><select name="online_security" class="form-control"><option>No</option><option>Yes</option><option>No internet service</option></select></div>
+                    <div class="form-group"><label>Online Backup</label><select name="online_backup" class="form-control"><option>No</option><option>Yes</option><option>No internet service</option></select></div>
+                    <div class="form-group"><label>Device Protection</label><select name="device_protection" class="form-control"><option>No</option><option>Yes</option><option>No internet service</option></select></div>
+                    <div class="form-group"><label>Tech Support</label><select name="tech_support" class="form-control"><option>No</option><option>Yes</option><option>No internet service</option></select></div>
+                    <div class="form-group"><label>Streaming TV</label><select name="streaming_tv" class="form-control"><option>No</option><option>Yes</option><option>No internet service</option></select></div>
+                    <div class="form-group"><label>Streaming Movies</label><select name="streaming_movies" class="form-control"><option>No</option><option>Yes</option><option>No internet service</option></select></div>
+                </div>
+            </div>
+
+            <div class="card-section">
+                <div class="section-title"><i class="fas fa-file-invoice-dollar"></i> Billing & Account</div>
+                <div class="grid">
+                    <div class="form-group"><label>Device Status</label><select name="device_type" class="form-control"><option value="New">New / Active</option><option value="Old">Old / Inactive</option></select></div>
+                    <div class="form-group"><label>Contract</label><select name="contract" class="form-control"><option value="Month-to-month">Month-to-month</option><option value="One year">One year</option><option value="Two year">Two year</option></select></div>
+                    <div class="form-group"><label>Payment Method</label><select name="payment" class="form-control"><option value="Electronic check">Electronic Check</option><option value="Mailed check">Mailed Check</option><option value="Credit card (automatic)">Credit Card</option><option value="Bank transfer (automatic)">Bank Transfer</option></select></div>
+                    <div class="form-group"><label>Paperless Billing</label><select name="paperless" class="form-control"><option>Yes</option><option>No</option></select></div>
+
+                    <div class="form-group"><label>Tenure (Months)</label><input type="number" name="tenure" class="form-control" step="1" required></div>
+                    <div class="form-group"><label>Monthly Charges ($)</label><input type="number" name="monthly_charges" class="form-control" step="0.01" required></div>
+                    <div class="form-group"><label>Total Charges ($)</label><input type="number" name="total_charges" class="form-control" step="0.01" required></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-predict" id="predictBtn">
+                <span class="btn-text">Predict Churn Risk</span>
+                <div class="spinner"></div>
+            </button>
+        </form>
+
+        <div style="margin-top: 40px; text-align: center; color: #64748b; font-size: 0.9rem;">
+            Built with <strong>Logistic Regression + SMOTE</strong> | Model Accuracy: 92%
+        </div>
+    </div>
+
+    <script>
+        function selectProvider(name, element) {
+            document.querySelectorAll('.provider-card').forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+            document.getElementById('selected_provider').value = name;
+        }
+
+        function showLoading() {
+            const btn = document.getElementById('predictBtn');
+            btn.querySelector('.btn-text').innerText = 'Analyzing...';
+            btn.querySelector('.spinner').style.display = 'block';
+            btn.style.opacity = '0.8';
+        }
+    </script>
+
+</body>
+</html>
